@@ -1,4 +1,6 @@
 {
     "userspace_version": "1.0",
-    "build_targets": []
+    "build_targets": [
+        ["keychron/k11_max/ansi_encoder/rgb", "snt"]
+    ]
 }

@@ -1,15 +1,19 @@
 # QMK Userspace
 
-This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
+This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful
+for users who want to maintain their own keymaps without having to fork the main QMK repository.
 
 ## Howto configure your build targets
 
-1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
+1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs)
+   for details.
 1. Fork this repository
 1. Clone your fork to your local machine
 1. Enable userspace in QMK config using `qmk config user.overlay_dir="$(realpath qmk_userspace)"`
 1. Add a new keymap for your board using `qmk new-keymap`
-    * This will create a new keymap in the `keyboards` directory, in the same location that would normally be used in the main QMK repository. For example, if you wanted to add a keymap for the Planck, it will be created in `keyboards/planck/keymaps/<your keymap name>`
+    * This will create a new keymap in the `keyboards` directory, in the same location that would normally be used in
+      the main QMK repository. For example, if you wanted to add a keymap for the Planck, it will be created in
+      `keyboards/planck/keymaps/<your keymap name>`
     * You can also create a new keymap using `qmk new-keymap -kb <your_keyboard> -km <your_keymap>`
     * Alternatively, add your keymap manually by placing it in the location specified above.
     * `layouts/<layout name>/<your keymap name>/keymap.*` is also supported if you prefer the layout system
@@ -29,31 +33,86 @@ This is a template repository which allows for an external set of QMK keymaps to
 
 ## Howto build locally
 
-1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
+1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs)
+   for details.
 1. Fork this repository
 1. Clone your fork to your local machine
 1. `cd` into this repository's clone directory
-1. Set global userspace path: `qmk config user.overlay_dir="$(realpath .)"` -- you MUST be located in the cloned userspace location for this to work correctly
-    * This will be automatically detected if you've `cd`ed into your userspace repository, but the above makes your userspace available regardless of your shell location.
+1. Set global userspace path: `qmk config user.overlay_dir="$(realpath .)"` -- you MUST be located in the cloned
+   userspace location for this to work correctly
+    * This will be automatically detected if you've `cd`ed into your userspace repository, but the above makes your
+      userspace available regardless of your shell location.
 1. Compile normally: `qmk compile -kb your_keyboard -km your_keymap` or `make your_keyboard:your_keymap`
 
-Alternatively, if you configured your build targets above, you can use `qmk userspace-compile` to build all of your userspace targets at once.
+Alternatively, if you configured your build targets above, you can use `qmk userspace-compile` to build all of your
+userspace targets at once.
 
 ## Extra info
 
-If you wish to point GitHub actions to a different repository, a different branch, or even a different keymap name, you can modify `.github/workflows/build_binaries.yml` to suit your needs.
+If you wish to point GitHub actions to a different repository, a different branch, or even a different keymap name, you
+can modify `.github/workflows/build_binaries.yml` to suit your needs.
 
 To override the `build` job, you can change the following parameters to use a different QMK repository or branch:
+
 ```
     with:
       qmk_repo: qmk/qmk_firmware
       qmk_ref: master
 ```
 
-If you wish to manually manage `qmk_firmware` using git within the userspace repository, you can add `qmk_firmware` as a submodule in the userspace directory instead. GitHub Actions will automatically use the submodule at the pinned revision if it exists, otherwise it will use the default latest revision of `qmk_firmware` from the main repository.
+If you wish to manually manage `qmk_firmware` using git within the userspace repository, you can add `qmk_firmware` as a
+submodule in the userspace directory instead. GitHub Actions will automatically use the submodule at the pinned revision
+if it exists, otherwise it will use the default latest revision of `qmk_firmware` from the main repository.
 
-This can also be used to control which fork is used, though only upstream `qmk_firmware` will have support for external userspace until other manufacturers update their forks.
+This can also be used to control which fork is used, though only upstream `qmk_firmware` will have support for external
+userspace until other manufacturers update their forks.
 
 1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
 1. (To update) `git submodule update --init --recursive`
 1. Commit your changes to your userspace repository
+
+## How to build K11 Max of `snt`
+
+### Prepare `uv` env
+
+If your environment does not allow `pip` command to install `qmk` CLI globally, follow the steps in this section to
+install `qmk` CLI locally with `uv` and clone `qmk` repo and `qmk_userspace` repo under the `uv` managed env.
+
+* Make sure you have [`uv`](https://github.com/astral-sh/uv) available to your system.
+  * Follow the steps described in [Installation](https://github.com/astral-sh/uv?tab=readme-ov-file#installation) of `uv`. 
+* Create the `uv` managed env
+
+   ```sh
+   mkdir qmk-build
+   cd qmk-build
+   uv init
+   uv add qmk appdirs
+   ```
+
+### Prepare base `qmk`
+
+* Make sure you are in `qmk-build` directory
+* Clone `qmk` repo with `qmk` CLI.
+
+   ```sh
+   uv run qmk setup -H $(realpath qmk_firmware) -b wireless_playground Keychron/qmk_firmware
+   ```
+
+### Clone `qmk_userspace`
+
+* Make sure you are in `qmk-build` directory
+* Clone and make it overlay the base `qmk` files as [External Userspace Setup (locally stored only) ](https://docs.qmk.fm/newbs_external_userspace#external-userspace-setup-locally-stored-only) explains.
+
+   ```sh
+   git clone git@github.com:snt/qmk_userspace.git
+   uv run qmk config user.overlay_dir="$(realpath qmk_userspace)"
+   ```
+
+### Compile
+
+* Make sure you are in `qmk_userspace` directory
+* Compile
+   
+   ```sh
+   uv qmk compile -kb keychron/k11_max/ansi_encoder/rgb -km snt
+   ```

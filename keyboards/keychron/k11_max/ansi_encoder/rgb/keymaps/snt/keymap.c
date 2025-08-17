@@ -30,16 +30,17 @@ enum layers {
 
 // https://docs.qmk.fm/features/rgblight
 #define C_NONEX {0, 0, 0}
-#define C_LETTR {13, 248, 179}
-#define C_LAYER {127, 255, 127}
-#define C_MODIF {43, 255, 127}
-#define C_SPCHL {148, 64, 235}
-#define C_CTCHL {43, 255, 132}
-#define C_CURSR {21, 255, 132}
-#define C_ENTER {169, 255, 132}
-#define C_TENKY {0, 0, 255}
-#define C_OPERA {0, 255, 112}
-#define C_BRAKT {218, 255, 128}
+#define C_LETTR {13, 128, 255} //13,248,255
+#define C_LETT2 {13, 128, 255}
+#define C_LAYER {127, 255, 255}
+#define C_MODIF {43, 255, 255}
+#define C_SPCHL {148, 128, 235}
+#define C_CTCHL {43, 255, 255}
+#define C_CURSR {21, 255, 255}
+#define C_ENTER {169, 255, 255}
+#define C_TENKY {43, 127, 255}
+#define C_OPERA {0, 255, 255}
+#define C_BRAKT {218, 255, 255}
 #define C_BLUTH {169, 255, 255}
 #define C_LANGE {201, 255, 255}
 #define C_FNKEY {85, 255, 255}
@@ -59,24 +60,24 @@ enum layers {
 // Mac
 
 #define KS_MAC_BASE_1   KC_GRV,  KC_1,	  KC_2,    KC_3,    KC_4,    KC_5,	  KC_6,	   KC_7,    KC_8,	 KC_9,	  KC_0,	   KC_MINS, KC_EQL,  KC_BSPC, KC_MUTE
-#define CS_MAC_BASE_1   C_SPCHL, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_SPCHL, C_SPCHL, C_CTCHL  /*****/
+#define CS_MAC_BASE_1   C_SPCHL, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_SPCHL, C_SPCHL, C_CTCHL  /*****/
 
 #define KS_MAC_BASE_2   KC_TAB,  KC_Q,	  KC_W,	   KC_E,    KC_R,    KC_T,    KC_Y,	   KC_U,    KC_I,	 KC_O,	  KC_P,	   KC_LBRC, KC_RBRC, KC_BSLS, KC_DEL
-#define CS_MAC_BASE_2   C_CTCHL, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_SPCHL, C_SPCHL, C_SPCHL, C_CTCHL
+#define CS_MAC_BASE_2   C_CTCHL, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_SPCHL, C_SPCHL, C_SPCHL, C_CTCHL
 
 #define KS_MAC_BASE_3   KC_LCTL, KC_A,    KC_S,	   KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    LT(MAC_VIM,KC_SCLN), KC_QUOT, KC_ENT,  KC_HOME
-#define CS_MAC_BASE_3   C_MODIF, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LAYER,             C_SPCHL, C_ENTER, C_CTCHL
+#define CS_MAC_BASE_3   C_MODIF, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LAYER,             C_SPCHL, C_ENTER, C_CTCHL
 
 #define KS_MAC_BASE_4   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,	 KC_B,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP
-#define CS_MAC_BASE_4   C_MODIF, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_SPCHL, C_SPCHL, C_SPCHL, C_MODIF, C_CURSR
+#define CS_MAC_BASE_4   C_MODIF, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_SPCHL, C_SPCHL, C_SPCHL, C_MODIF, C_CURSR
 
-#define KS_MAC_BASE_5   KC_ESC, KC_LOPTN, MT(MOD_LGUI,KC_LANGUAGE_2), MT(MOD_LGUI,KC_SPC), KC_SPC,  MO(FN2), KC_SPC,  LT(MAC_FN1, KC_LANGUAGE_1), KC_LEFT, KC_DOWN, KC_RGHT
-#define CS_MAC_BASE_5   C_CTCHL, C_MODIF, C_LANGE,                    C_MODIF,             C_SPCHL, C_LAYER, C_SPCHL, C_LANGE,                    C_CURSR, C_CURSR, C_CURSR
+#define KS_MAC_BASE_5   KC_ESC, KC_LOPTN, MT(MOD_LGUI,KC_LANGUAGE_2), MT(MOD_LGUI,KC_SPC), KC_SPC,  MO(FN2), KC_LANGUAGE_1,LT(MAC_FN1, KC_LANGUAGE_1), KC_LEFT, KC_DOWN, KC_RGHT
+#define CS_MAC_BASE_5   C_CTCHL, C_MODIF, C_LANGE,                    C_MODIF,             C_SPCHL, C_LAYER, C_LANGE, C_LANGE,                    C_CURSR, C_CURSR, C_CURSR
 
 // Windows
 
 #define KS_WIN_BASE_1   KC_GRV,  KC_1,	  KC_2,	   KC_3,	KC_4,    KC_5,    KC_6,	   KC_7,    KC_8,	 KC_9,	  KC_0,	   KC_MINS, KC_EQL,  KC_BSPC, KC_MUTE
-#define CS_WIN_BASE_1   C_SPCHL, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_SPCHL, C_SPCHL, C_CTCHL  /*****/
+#define CS_WIN_BASE_1   C_SPCHL, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_SPCHL, C_SPCHL, C_CTCHL  /*****/
 
 #define KS_WIN_BASE_2   KC_TAB,  KC_Q,	   KC_W,   KC_E,    KC_R,    KC_T,    KC_Y,	   KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_DEL
 #define CS_WIN_BASE_2   C_CTCHL, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_SPCHL, C_SPCHL, C_SPCHL, C_CTCHL
@@ -87,8 +88,8 @@ enum layers {
 #define KS_WIN_BASE_4   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP
 #define CS_WIN_BASE_4   C_MODIF, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_SPCHL, C_SPCHL, C_SPCHL, C_MODIF, C_CURSR
 
-#define KS_WIN_BASE_5   KC_ESC , KC_LALT, MT(MOD_LGUI,KC_LANGUAGE_2), MT(MOD_LCTL,KC_SPC),KC_SPC,  MO(FN2), KC_SPC,  LT(WIN_FN1, KC_LANGUAGE_1), KC_LEFT, KC_DOWN, KC_RGHT
-#define CS_WIN_BASE_5   C_CTCHL, C_MODIF, C_LANGE,                    C_MODIF,            C_SPCHL, C_LAYER, C_SPCHL, C_LANGE,                    C_CURSR, C_CURSR, C_CURSR
+#define KS_WIN_BASE_5   KC_ESC , KC_LALT, MT(MOD_LGUI,KC_LANGUAGE_2), MT(MOD_LCTL,KC_SPC),KC_SPC,  MO(FN2), KC_LANGUAGE_1, LT(WIN_FN1, KC_LANGUAGE_1), KC_LEFT, KC_DOWN, KC_RGHT
+#define CS_WIN_BASE_5   C_CTCHL, C_MODIF, C_LANGE,               C_MODIF,            C_SPCHL, C_LAYER, C_LANGE,  C_LANGE,               C_CURSR, C_CURSR, C_CURSR
 
 // Mac FN1
 
@@ -104,8 +105,8 @@ enum layers {
 #define KS_MAC_FN1_4    _______, _______, _______, _______, _______, _______, S(C(G(KC_4))), NK_TOGG, _______, _______, _______, _______, _______, KC_PGUP
 #define CS_MAC_FN1_4    C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_CTCHL,       C_LETTR, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_CTCHL
 
-#define KS_MAC_FN1_5    _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGDN, _______
-#define CS_MAC_FN1_5    C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_CTCHL, C_NONEX
+#define KS_MAC_FN1_5    _______, _______, G(KC_SPC), _______, _______, _______, _______, _______, _______, KC_PGDN, _______
+#define CS_MAC_FN1_5    C_NONEX, C_NONEX, C_CTCHL, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_CTCHL, C_NONEX
 
 // Windows FN1
 
@@ -129,14 +130,14 @@ enum layers {
 #define KS_FN2_1        KC_TILD, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,  KC_F9,    KC_F10,  KC_F11,  KC_F12,  _______, _______
 #define CS_FN2_1        C_SPCHL, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_FNKEY, C_NONEX  /*****/
 
-#define KS_FN2_2        _______, _______, _______, _______, _______, _______, KC_EQUAL, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______, _______
+#define KS_FN2_2        _______, _______, _______, _______, _______, KC_DQUO, KC_EQUAL, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______, _______
 #define CS_FN2_2        C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_SPCHL,  C_TENKY, C_TENKY, C_TENKY, C_NONEX, C_NONEX, C_NONEX, C_NONEX, C_NONEX
 
 #define KS_FN2_3        KC_LCTL, KC_LABK, KC_LPRN, KC_RPRN, KC_RABK, KC_PIPE, KC_MINUS, KC_4,    KC_5,    KC_6,    KC_MINS, _______, _______, _______
 #define CS_FN2_3        C_LAYER, C_SPCHL, C_BRAKT, C_BRAKT, C_SPCHL, C_SPCHL, C_OPERA,  C_TENKY, C_TENKY, C_TENKY, C_OPERA, C_NONEX, C_NONEX, C_NONEX
 
-#define KS_FN2_4        _______, KC_MINUS, KC_LCBR, KC_RCBR, KC_PLUS, _______, _______, KC_ASTR, KC_1,    KC_2,    KC_3,    KC_SLSH, KC_COMM, _______
-#define CS_FN2_4        C_NONEX, C_OPERA,  C_BRAKT, C_BRAKT, C_OPERA, C_NONEX, C_NONEX, C_OPERA, C_TENKY, C_TENKY, C_TENKY, C_OPERA, C_MODIF, C_NONEX
+#define KS_FN2_4        _______, KC_MINUS, KC_LCBR, KC_RCBR, KC_PLUS, KC_QUOT, _______, KC_ASTR, KC_1,    KC_2,    KC_3,    KC_SLSH, KC_COMM, _______
+#define CS_FN2_4        C_NONEX, C_OPERA,  C_BRAKT, C_BRAKT, C_OPERA, C_NONEX, C_NONEX, C_OPERA, C_TENKY, C_TENKY, C_TENKY, C_OPERA, C_SPCHL, C_NONEX
 
 #define KS_FN2_5        _______, _______, KC_LBRC, KC_RBRC, _______, _______, KC_0,    KC_DOT,  _______, _______, _______
 #define CS_FN2_5        C_NONEX, C_NONEX, C_BRAKT, C_BRAKT, C_NONEX, C_NONEX, C_TENKY, C_TENKY, C_NONEX, C_NONEX, C_NONEX

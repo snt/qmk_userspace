@@ -114,5 +114,11 @@ install `qmk` CLI locally with `uv` and clone `qmk` repo and `qmk_userspace` rep
 * Compile
    
    ```sh
-   uv qmk compile -kb keychron/k11_max/ansi_encoder/rgb -km snt
+   uv run qmk compile -kb keychron/k11_max/ansi_encoder/rgb -km snt
    ```
+
+
+### Windows USB Driver on Flashing
+
+- Uninstall `STM32 BOOTLOADER`
+- Run `zadig`(`winget` might install it) to replace `STM32 BOOTLOADER`

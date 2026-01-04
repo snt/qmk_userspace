@@ -62,10 +62,10 @@ enum layers {
 #define KS_MAC_BASE_1   KC_GRV,  KC_1,	  KC_2,    KC_3,    KC_4,    KC_5,	  KC_6,	   KC_7,    KC_8,	 KC_9,	  KC_0,	   KC_MINS, KC_EQL,  KC_BSPC, KC_MUTE
 #define CS_MAC_BASE_1   C_SPCHL, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_SPCHL, C_SPCHL, C_CTCHL  /*****/
 
-#define KS_MAC_BASE_2   KC_TAB,  KC_Q,	  KC_W,	   KC_E,    KC_R,    KC_T,    KC_Y,	   KC_U,    KC_I,	 KC_O,	  KC_P,	   KC_LBRC, KC_RBRC, KC_BSLS, KC_DEL
+#define KS_MAC_BASE_2   KC_TAB,  KC_Q,	  KC_W,	   KC_E,    KC_R,    KC_T,    KC_Y,	   KC_U,    KC_I,	 KC_O,	  KC_P,	   KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP
 #define CS_MAC_BASE_2   C_CTCHL, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_SPCHL, C_SPCHL, C_SPCHL, C_CTCHL
 
-#define KS_MAC_BASE_3   KC_LCTL, KC_A,    KC_S,	   KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    LT(MAC_VIM,KC_SCLN), KC_QUOT, KC_ENT,  KC_HOME
+#define KS_MAC_BASE_3   KC_LCTL, KC_A,    KC_S,	   KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    LT(MAC_VIM,KC_SCLN), KC_QUOT, KC_ENT,  KC_PGDN
 #define CS_MAC_BASE_3   C_MODIF, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LETT2, C_LAYER,             C_SPCHL, C_ENTER, C_CTCHL
 
 #define KS_MAC_BASE_4   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,	 KC_B,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP
@@ -79,10 +79,10 @@ enum layers {
 #define KS_WIN_BASE_1   KC_GRV,  KC_1,	  KC_2,	   KC_3,	KC_4,    KC_5,    KC_6,	   KC_7,    KC_8,	 KC_9,	  KC_0,	   KC_MINS, KC_EQL,  KC_BSPC, KC_MUTE
 #define CS_WIN_BASE_1   C_SPCHL, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_TENKY, C_SPCHL, C_SPCHL, C_CTCHL  /*****/
 
-#define KS_WIN_BASE_2   KC_TAB,  KC_Q,	   KC_W,   KC_E,    KC_R,    KC_T,    KC_Y,	   KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_DEL
+#define KS_WIN_BASE_2   KC_TAB,  KC_Q,	   KC_W,   KC_E,    KC_R,    KC_T,    KC_Y,	   KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP
 #define CS_WIN_BASE_2   C_CTCHL, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_SPCHL, C_SPCHL, C_SPCHL, C_CTCHL
 
-#define KS_WIN_BASE_3   MO(COMPAT), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,	   KC_K,    KC_L,    LT(WIN_VIM,KC_SCLN), KC_QUOT, KC_ENT,  KC_HOME
+#define KS_WIN_BASE_3   MO(COMPAT), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,	   KC_K,    KC_L,    LT(WIN_VIM,KC_SCLN), KC_QUOT, KC_ENT,  KC_PGDN
 #define CS_WIN_BASE_3   C_LAYER,    C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LETTR, C_LAYER,             C_SPCHL, C_ENTER, C_CTCHL
 
 #define KS_WIN_BASE_4   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP
@@ -234,7 +234,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 
     [WIN_FN1] = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
 
-    [FN2] = {ENCODER_CCW_CW(_______, _______)},
+    [FN2] = {ENCODER_CCW_CW(KC_BRID, KC_BRIU)},
 
     [MAC_VIM] = {ENCODER_CCW_CW(_______, _______)},
 
